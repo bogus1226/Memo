@@ -9,7 +9,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class PostController {
 
 	@GetMapping("/list/view")
-	public String memoLost() {
+	public String memoList() {
 		return "/post/list";
+	}
+	
+	@GetMapping("/create/view")
+	public String memoCreate() {
+		return "/post/create";
+	}
+	
+	@GetMapping("/detail/view") 
+	public String memoDetail() {
+		return "/post/detail";
 	}
 }

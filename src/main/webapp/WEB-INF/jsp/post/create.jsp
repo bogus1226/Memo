@@ -10,51 +10,32 @@
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>	
 	<link rel="stylesheet" href="/static/css/style.css" type="text/css">
-<title>메모리스트</title>
+<title>메모 입력</title>
 </head>
 <body>
 	
 	<div id="wrap">
 		<c:import url="/WEB-INF/jsp/include/header.jsp"/>
-		<section class="memoList contents mb-4">
-			<h2 class="text-center mt-5 mb-5"><b>메모리스트</b></h2>
-			<table class="memoList table text-center border-bottom">
-				<thead>
-					<tr>
-						<th>No.</th>
-						<th>제목</th>
-						<th>시간</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>4</td>
-						<td>중요한 메모</td>
-						<td>2025-01-04 12:00:00</td>
-					</tr>
-					
-					<tr>
-						<td>3</td>
-						<td>적당한 메모</td>
-						<td>2025-01-02 08:40:00</td>
-					</tr>
-					
-					<tr>
-						<td>2</td>
-						<td>그럭저럭</td>
-						<td>2025-01-01 15:00:00</td>
-					</tr>
-					
-					<tr>
-						<td>1</td>
-						<td>오늘 하루</td>
-						<td>2025-01-01 09:00:00</td>
-					</tr>
-				</tbody>
-			</table>
+		<section class="memoList contents mb-4 text-center ">
+			<h2 class="mt-5 mb-4"><b>메모 입력</b></h2>
 			
-			<div class="d-flex justify-content-end">
-				<a type="button" class="btn btn-primary mt-5" href="/post/create/view">글쓰기</a>
+			<div class="d-flex justify-content-end align-items-center">
+				<label class="mt-2 ml-3"><b>제목 :</b></label>
+				<input placeholder="내용을 입력해주세요" type="text" class="form-control col-10 ml-4">
+			</div>
+			
+			<div class="d-flex justify-content-center align-items-center mt-3">
+				<textarea placeholder="내용을 입력해주세요" rows="6" class="form-control"></textarea>
+			</div>
+			
+			<div class="d-flex justify-content-strart align-items-center mt-3">
+				<button type="button" class="fileBtn btn">파일첨부</button>
+				<div class="ml-2"><b>image.png</b></div>
+			</div>
+			
+			<div class="d-flex justify-content-between mt-3">
+				<a type="button" class="btn btn-secondary" href="/post/list/view">목록으로</a>
+				<button type="button" class="btn btn-secondary">저장</button>
 			</div>
 		</section>
 		

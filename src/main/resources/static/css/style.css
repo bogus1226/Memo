@@ -19,3 +19,29 @@ footer {
 	height:60px;
 	background-color:#dddddd;	
 }
+
+.memoList {
+	width:500px;
+	margin:auto;
+}
+
+.memoList > .xbox {
+
+     height: 100px;
+     position: relative;
+     background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%" stroke="black" /></svg>'),
+       url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="100%" x2="100%" y2="0" stroke="black" /></svg>');
+}
+
+.memoList > thead {
+	background-color:#dddddd;
+}
+
+textarea{
+	width:100%;
+	resize:none;
+}
+
+.fileBtn {
+	background-color:#dddddd;
+}
