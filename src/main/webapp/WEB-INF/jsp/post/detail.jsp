@@ -21,23 +21,19 @@
 			
 			<div class="d-flex justify-content-end align-items-center">
 				<label class="mt-2 ml-3"><b>제목 :</b></label>
-				<input placeholder="중요한 메모" type="text" class="form-control col-10 ml-4">
+				<input type="text" class="form-control col-10 ml-4" value="${post.title}">
 			</div>
 			
 			<div class="d-flex justify-content-center align-items-center mt-3">
-				<textarea placeholder="내용을 입력해주세요" rows="6" class="form-control">음.. 뭔가 중요한 느낌 적인 느낌이다. 으하하하ㅏㅎ</textarea>
-			</div>
-			
-			<div class="xbox border border-dark mt-3">
-
-			</div>
-			
+				<textarea placeholder="내용을 입력해주세요" rows="6" class="form-control">${post.content}</textarea>
+			</div>	
+			<img src="${post.imagePath}">
 			<div class="d-flex justify-content-between mt-3">
 				<div>
-					<button type="button" class="btn btn-secondary">목록으로</button>
-					<button type="button" class="btn btn-danger ml-2">삭제</button>
+					<a type="button" class="btn btn-secondary" href="/post/list/view">목록으로</a>
+					<button type="button" class="btn btn-danger ml-2" id="removeBtn">삭제</button>
 				</div>
-				<button type="button" class="btn btn-secondary">수정</button>
+				<button type="button" class="btn btn-secondary" id="modifyBtn">수정</button>
 			</div>
 		</section>
 		

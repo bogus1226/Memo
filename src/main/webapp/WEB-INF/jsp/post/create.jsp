@@ -16,33 +16,74 @@
 	
 	<div id="wrap">
 		<c:import url="/WEB-INF/jsp/include/header.jsp"/>
+		
 		<section class="memoList contents mb-4 text-center ">
 			<h2 class="mt-5 mb-4"><b>메모 입력</b></h2>
 			
 			<div class="d-flex justify-content-end align-items-center">
 				<label class="mt-2 ml-3"><b>제목 :</b></label>
-				<input placeholder="내용을 입력해주세요" type="text" class="form-control col-10 ml-4">
+				<input placeholder="내용을 입력해주세요" type="text" class="form-control col-10 ml-4" id="titleInput">
 			</div>
 			
 			<div class="d-flex justify-content-center align-items-center mt-3">
-				<textarea placeholder="내용을 입력해주세요" rows="6" class="form-control"></textarea>
+				<textarea placeholder="내용을 입력해주세요" rows="6" class="form-control" id="contentInput"></textarea>
 			</div>
 			
 			<div class="d-flex justify-content-strart align-items-center mt-3">
-				<button type="button" class="fileBtn btn">파일첨부</button>
-				<div class="ml-2"><b>image.png</b></div>
+				<input type="file" id="fileInput">
 			</div>
 			
 			<div class="d-flex justify-content-between mt-3">
 				<a type="button" class="btn btn-secondary" href="/post/list/view">목록으로</a>
-				<button type="button" class="btn btn-secondary">저장</button>
+				<button type="button" class="btn btn-secondary" id="saveBtn">저장</button>
 			</div>
 		</section>
-		
-		
 		
 		<c:import url="/WEB-INF/jsp/include/footer.jsp"/>
 	</div>
 	
+	<script>
+		$(document).ready(function(){
+			$("#saveBtn").on("click", function(){
+				let title = $("#titleInput").val();
+				let content = $("#contentInput").val();
+				let file = $("#fileInput")[0];
+				
+				if(title == "") {
+					alert("제목을 입력하세요");
+					return;
+				}
+				
+				if(content.trim() == "") {
+					alert("내용을 입력하세요");
+					return;
+				}
+				
+				var formData = new FormData();
+				formData.append("title",title);
+				formData.append("content",content);
+				formData.append("file", file.files[0]);
+				
+				$.ajax({
+					type:"post"
+					, url:"/post/create"
+					, data:formData
+					, enctype:"multipart/form-data" // 파일 업로드 필수
+					, processData:false // 파일 업로드 필수
+					, contentType:false // 파일 업로드 필수
+					, success:function(data){
+						if(data.result == "success") {
+							location.href = "/post/list/view";
+						} else {
+							alert("글쓰기 실패");
+						}
+					}
+					, error:function(){
+						alert("글쓰기 에러");
+					}
+				});
+			});
+		});
+	</script>
 </body>
 </html>
