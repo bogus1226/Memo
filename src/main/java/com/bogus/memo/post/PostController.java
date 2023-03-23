@@ -43,7 +43,7 @@ public class PostController {
 			@RequestParam("id") int postId
 			, Model model) {
 		
-		Post post =postBO.getPost(postId);
+		Post post = postBO.getPost(postId);
 		model.addAttribute("post", post);
 		
 		return "/post/detail";
